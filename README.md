@@ -1,470 +1,178 @@
-# AI Workhorse Framework aka AI Workhorse Model
+# OpenAI Workhorse 项目总纲
 
-Formal:
-AI Workforce Role-Task-Capability Specification
-
-Nickname:
-AI Workhorse
-
-
-
-
-if AI can do anything,then this repo should die
-
-A  workhorse  is someone who works very hard and steady, focused on the job. It usually refers to physical work, but sometimes can refer to office workers who never seem to take a break
-but ai workhorse can 7*24 if got enough token
-
-
-传统意义上 职位落实到某个人身上就成了岗位 一个萝卜一个坑 每个人的岗位趋向于固定，随着项目管理的演化，不同岗位的人在不同的项目里，随着需要的技能不同，扮演的角色会有变化，于是人是活的，岗位是死的，角色是活的，技能是活的。就像演员是个岗位，但在不同的戏里扮演的角色是不同的，要求的特质技能不同
-
-
-
-把这套 **Occupation → Position → Role → Task → Skill** 的框架从“人”迁移到 **AI Agent** 上，其意义其实非常深远。本质上它在做一件事：
-
-**把“人类劳动力市场的语义结构”变成“AI能力系统的统一接口”。**
-
-换句话说，这套框架不是 HR 模型，而是：
-
-> **AI能力与任务之间的标准语言（Capability Interface）。**
-
-下面我从 **5 个层面**解释它真正的意义。
+**版本：** 1.5  
+**日期：** 2026-05-12  
+**状态：** Single Source of Truth（SSOT）  
 
 ---
 
-# 1 本质意义：把“工作”拆成 AI 可以执行的结构
+## 1. 项目愿景
 
-人类的职业体系其实是一个 **工作分解系统**：
+**OpenAI Workhorse**（简称 Workhorse）的使命是：
 
-```
-Occupation
-   ↓
-Position
-   ↓
-Role
-   ↓
-Task
-   ↓
-Skill
-```
+> **让 AI 成为组织中真正的第一等劳动力（First-class AI Workforce）**。
 
-迁移到 AI 之后，它变成：
+我们不再把 AI 当成一次性提示词工具，而是将其构建为**可招募、可分配、可考核、可进化、可长期积累**的组织资产。让每一位开发者、设计师、产品经理都能像管理人类团队一样，轻松拥有并管理一支强大、稳定、持续进化的 AI 团队。
 
-```
-Agent System
-   ↓
-Agent Type
-   ↓
-Agent Role
-   ↓
-Executable Task
-   ↓
-Capability / Tool / Model
-```
+### 核心口号
 
-例如：
+**You own the product. Workhorse owns the team.**
 
-人类体系：
+**口号解释**：
 
-```
-Occupation
-Data Analyst
+- **You own the product**：你专注于产品愿景、创新和最终交付成果。
+- **Workhorse owns the team**：Workhorse（工作马）负责组建、管理、优化整个 AI 团队。
 
-Position
-Senior Data Analyst
-
-Role
-Business analysis
-
-Task
-Analyze user retention
-
-Skill
-SQL
-Statistics
-Data visualization
-```
-
-AI体系：
-
-```
-Agent Type
-Analytics Agent
-
-Role
-Retention analysis
-
-Task
-Run retention cohort analysis
-
-Capability
-SQL query
-Python analysis
-Chart generation
-```
-
-所以这套框架的核心价值是：
-
-**把抽象的“AI能力”映射到现实世界的“工作结构”。**
+**“Workhorse”** 是对 AI 团队的**亲切戏称**，像一匹勤奋、可靠、能吃苦耐劳的“工作马”（老黄牛），可以 7×24 小时不疲倦地工作、承担繁重任务、持续积累经验。用户无需操心团队组建、人员调度、知识管理等繁琐事务，只需提出需求，Workhorse 就会为你组建并管理一支专业的 AI 团队。
 
 ---
 
-# 2 让 AI Agent 能参与“劳动力系统”
+## 2. 核心理念：人类职业体系向 AI 的迁移
 
-如果没有这个框架，AI系统只知道：
+本项目将人类劳动力市场的语义结构（**Occupation → Position → Role → Task → Skill**）系统性迁移到 AI 体系，构建一套**AI 能力与任务之间的标准语言（Capability Interface）**。
 
-```
-model
-tool
-prompt
-API
-```
-
-但企业世界的语言是：
-
-```
-job
-role
-task
-skill
-```
-
-这套框架的作用就是：
-
-**建立 AI 与组织之间的翻译层。**
-
-例如：
-
-企业说：
-
-```
-需要一个数据分析岗位
-```
-
-系统可以转译为：
-
-```
-Tasks
-- collect data
-- clean dataset
-- run statistical analysis
-- generate report
-```
-
-然后再映射到 AI：
-
-```
-Agent capability
-- SQL engine
-- Python runtime
-- chart generator
-- report LLM
-```
-
-因此：
-
-**AI agent 可以被像“岗位”一样管理。**
+**核心意义**：
+- 把“抽象的 AI 能力”映射到现实世界的“工作结构”
+- 让 AI Agent 能够像员工一样被定义、分配、评估和协作
+- 实现 Human-AI 统一编排与任务分配
+- 最终形成 **AI Capability Graph**（AI 能力图谱），驱动 Agent 选择、工作流自动化和能力基准测试
 
 ---
 
-# 3 统一描述“人类能力”和“AI能力”
+## 3. 核心架构：RAMS
 
-这是最关键的一点。
+**RAMS (Role-Actor-Market System)** 是 OpenAI Workhorse 的**组织操作系统**和**核心实现框架**。
 
-传统 HR 模型只描述 **人类能力**。
-
-但未来组织是：
-
-```
-Human + AI + Automation
-```
-
-所以需要一个统一描述方式：
-
-```
-Capability Graph
-```
-
-例如：
-
-```
-Skill
-Python programming
-```
-
-人类：
-
-```
-Person A
-skill: python
-level: advanced
-```
-
-AI：
-
-```
-Agent B
-capability: python execution
-latency: 0.2s
-accuracy: 98%
-```
-
-这样系统可以比较：
-
-```
-Human capability
-vs
-AI capability
-```
-
-例如：
-
-```
-Task
-generate SQL report
-```
-
-系统可以选择：
-
-```
-AI agent
-or
-human analyst
-```
-
-这就是 **Human-AI workforce orchestration**。
+**关系定位**：
+- **OpenAI Workhorse = What**（产品愿景与哲学）
+- **RAMS = How**（组织管理方法论与具体架构实现）
 
 ---
 
-# 4 为“AI岗位”提供标准定义
+## 4. 设计哲学
 
-未来会出现大量 **AI岗位**。
+RAMS 的根本原则是：
 
-例如：
-
-```
-Customer support agent
-Research assistant agent
-Coding agent
-Legal analysis agent
-```
-
-如果没有结构化框架，就只能描述成：
-
-```
-prompt + tool + model
-```
-
-但企业需要的是：
-
-```
-Role
-Responsibilities
-Required capabilities
-Performance metrics
-```
-
-所以 AI岗位可以这样定义：
-
-```
-Position
-AI Customer Support Agent
-
-Role
-Handle tier-1 customer inquiries
-
-Tasks
-- answer FAQ
-- lookup order status
-- escalate complex issues
-
-Skills
-- natural language understanding
-- knowledge retrieval
-- CRM tool integration
-```
-
-这就是：
-
-**AI Job Architecture**
+**将组织资产（Role、Skill、Soul、Memory）与执行资源（Actor）彻底解耦**，通过 Orchestrator + 量化机制 + 双轨进化，把人类团队中大量协调性、执行性、记忆性、规模化问题转化为**可工程化、可量化、可持续优化的组织问题**，同时充分发挥 AI 在**无限并行、无疲劳、完美记忆、高速反馈**上的超人类优势。
 
 ---
 
-# 5 支持“人机协作分工”
+## 5. 核心概念
 
-这套框架还能解决一个非常现实的问题：
+### 5.1 用户术语 vs 技术术语
 
-> **哪些任务应该给 AI？哪些给人？**
+| 用户术语（对外）     | 技术术语（对内）     | 说明 |
+|---------------------|---------------------|------|
+| **Team**            | Team                | 团队 |
+| **Team Member**     | **Role Instance**   | 虚拟团队成员（核心执行单元） |
+| **Role**            | Role                | 岗位定义 |
+| **Skill**           | Skill               | 能力证书 |
+| **Soul**            | Soul                | 专业人格 |
+| **Actor**           | Actor               | LLM 执行实例 |
+| **Orchestrator**    | Orchestrator        | 智能编排器 |
 
-因为任务已经拆解成：
+### 5.2 详细概念定义
 
-```
-Task
-```
+**Team（团队）**  
+一组 Role 的集合，可分为静态模板和运行时实例。
 
-每个任务都有：
+**Team Member（虚拟团队成员）**  
+实际执行任务的 AI 员工。其**底层实现**为 **Role Instance**，即 Role（岗位）与 Actor（具体模型）在运行时的动态绑定实例，携带上下文、记忆和实时状态。
 
-```
-required skills
-```
+**Role（角色）**  
+静态岗位定义，相当于人类组织中的职位说明书（Job Description）。是组织的永久资产。
 
-然后系统可以判断：
+**Soul（灵魂）**  
+独立的专业人格和工作风格，可跨 Role 复用和切换。
 
-```
-AI capability >= required skill ?
-```
+**Skill（技能）**  
+原子化的专业能力证书，支持 N:M 绑定，是可共享、可进化、可交易的组织资产。Skill 关注“角色具备什么专业能力”，而非具体工具调用（工具和模型仅为实现介质）。
 
-例如：
+**Actor（执行者）**  
+具体的 LLM 模型实例（可随时替换）。
 
-任务：
-
-```
-Generate weekly sales report
-```
-
-技能：
-
-```
-SQL
-data cleaning
-chart creation
-```
-
-AI可以：
-
-```
-✔ SQL
-✔ chart
-✔ automation
-```
-
-系统分配：
-
-```
-AI agent handles report generation
-```
-
-人类负责：
-
-```
-interpret insights
-make strategy
-```
-
-这就是：
-
-**Human-AI task allocation system**
+**Orchestrator（编排器）**  
+系统的智能管理层，负责任务分解、Team Member 招募与分配、调度、监控、路由和进化触发。
 
 ---
 
-# 6 AI能力图谱（Agent Capability Graph）
+## 6. 竞品定位与分层架构
 
-最终这套模型会演化成一张：
+### 6.1 分层架构
 
-**Agent Capability Graph**
+| 层级 | 名称 | 定位 | 代表技术 |
+|------|------|------|----------|
+| **战略层** | Vision | 产品愿景 | OpenAI Workhorse |
+| **组织管理层** | Framework | Role、Team Member、记忆、进化 | **RAMS**（核心） |
+| **执行引擎层** | Runtime / Adapter | 具体任务执行、工具调用 | Codex CLI、Claude Code、OpenClaw 等 |
+| **基础模型层** | Foundation Models | 算力提供者 | GPT-5.4/5.5、Claude 4 等 |
 
-结构类似：
+### 6.2 主要竞品定位
 
-```
-Occupation
-   ↓
-Role
-   ↓
-Task
-   ↓
-Capability
-   ↓
-Agent / Human
-```
+| 竞品 / 技术 | 所属层级 | 在 RAMS 中的角色 | 详细说明 |
+|------------|----------|------------------|----------|
+| **GPT-5.4 / GPT-5.5** | 基础模型层 | **Actor** 主力 | 顶级推理能力提供者 |
+| **Codex CLI** | 执行引擎层 | **首选 Runtime Adapter** | 强大的 CLI 执行环境 |
+| **Claude Code** | 执行引擎层 | **重要 Runtime Adapter** | 原生支持 Agent Teams 和 MCP |
+| **OpenClaw** | 执行引擎层 | **工具集成平台** | 提供大量面向具体工具的 Skill，本质是工具调用集合 |
+| **Windsurf** | 执行引擎层 | **Runtime Adapter** | Cascade 工作流补充 |
+| **oh-my-openagent / oh-my-codex** | 执行引擎层 | **工程实践参考** | 成熟的多 Agent 实现 |
 
-例如：
-
-```
-Task
-Market research
-
-Capabilities
-- search
-- summarization
-- trend analysis
-
-Agents
-- research_agent_v1
-- research_agent_v2
-```
-
-这张图可以驱动：
-
-* agent selection
-* workflow automation
-* agent marketplace
-* capability benchmarking
+**RAMS 与 OpenClaw 的核心区别**：OpenClaw 的 Skill 主要是具体工具集成，而 RAMS 的 Skill 是抽象的专业能力证书。RAMS 可在其之上构建更高层次的组织管理能力。
 
 ---
 
-# 7 组织管理层面的意义
+## 7. 五层记忆架构
 
-从管理角度看，它解决的是：
+所有记忆归属于 **Role**（组织资产）：
 
-**AI如何成为“组织资源”。**
+1. **L1 Prompt Memory** —— 最稳定层（核心提示词、最佳实践）
+2. **L2 Session Archive** —— 原始会话记录（提炼原料）
+3. **L3 Skill Memory** —— 技能级最佳实践（支持跨 Role 知识授粉）
+4. **L4 Vector Index** —— 向量检索加速层
+5. **L5 User Profile** —— 用户个性化画像
 
-企业管理的对象原本是：
+**核心价值**：实现**团队越用越聪明**，知识永不随 Actor 更换而丢失。
+
+---
+
+## 8. 系统运行流程
+
+1. 用户输入任务 → Orchestrator 解析并分解
+2. 招募 Team Member（动态或模板化）
+3. Team Member 实例化（绑定 Actor + 加载 Soul、Skills、Memory）
+4. 并行执行 + Orchestrator 监控路由
+5. 任务结束 → 经验提炼进入五层记忆
+6. 触发双轨进化，持续优化 Role 与 Actor
+
+---
+
+## 9. 项目结构（.open-workhorse）
 
 ```
-people
-teams
-roles
-```
-
-未来管理对象会变成：
-
-```
-people
-AI agents
-automation systems
-```
-
-这套框架提供了一个统一描述方式。
-
-例如：
-
-```
-Team
-
-Human
-Product manager
-Data analyst
-
-AI
-Research agent
-SQL agent
-Report generator
+.open-workhorse/                  # Single Source of Truth
+├── config.yaml
+├── teams/                        # 团队模板
+├── roles/{role-name}/
+│   ├── role.yaml
+│   ├── soul.md
+│   └── default-skills.yaml
+├── skills/                       # 独立 Skill 资产
+├── memory/                       # 五层组织记忆
+├── scores/                       # Team Member 评分数据
+└── marketplace/                  # 已安装的市场资源
 ```
 
 ---
 
-# 8 一句话总结
+## 10. 优势与定位
 
-这套框架在 AI 时代的意义是：
-
-> **把“人类职业体系”转化为“AI能力编排系统”。**
-
-或者更简单一点：
-
-**让 AI 能像员工一样被定义、分配、评估和协作。**
+- **对比基础模型**：高效使用 GPT-5.5、Claude 等顶级 Actor
+- **对比执行引擎**：通过 Adapter 充分复用 Codex、Claude Code、OpenClaw 等平台
+- **对比人类团队**：在速度、成本、并行能力、知识积累上具有压倒性优势
+- **最佳模式**：**人类战略决策 + Workhorse 大规模执行** 的混合协同
 
 ---
 
-如果再往前走一步，其实还有一个更重要的演化方向（很多 AI agent 系统正在走这条路）：
-
-这套框架最终会变成：
-
-**AI操作系统里的“能力层协议”。**
-
-也就是：
-
-```
-Capability Protocol
-```
-
-我可以帮你把它升级成一套 **Agent Capability Spec（ACS）**，
-那会是比 HR 模型更接近 **AI基础设施标准** 的东西。
+**文档维护声明**：
+本文件为项目 **Single Source of Truth**。所有后续设计、实现、文档必须以此总纲为基准。如有调整，需同步更新本文件并记录 Architecture Decision Record (ADR)。
